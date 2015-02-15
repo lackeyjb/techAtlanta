@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rest-client', '~> 1.7.2'
-
+gem 'unirest', '~> 1.1.2'
 gem 'pry', group: :development
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
