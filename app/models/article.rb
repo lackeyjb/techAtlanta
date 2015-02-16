@@ -2,7 +2,7 @@ class Article < ActiveRecord::Base
 
   def self.get_articles
     get_links.map do |line|
-      response   = get_summaries(line)
+      response     = get_summaries(line)
       unless response.blank?
         a          = self.new 
         a.source   = response['data']['url']
