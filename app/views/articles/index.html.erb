@@ -1,7 +1,18 @@
-<ul>
-  <% @articles.each do |article| %>
-  <li>
-    <ul><%= article %></ul>
-  </li>
-  <%end%>
-</ul>
+<div class="container" id="main">
+  <div class="row">
+    <div class="col-lg-6"> 
+      <% @articles.each do |article| %>
+        <h3> 
+          <a href="<%= article.source %>" target="_blank" >
+            <!-- Extrapolates title from url -->
+            <%= article.source.split('/')[-1].titleize.gsub('-', ' ').gsub('.Html', '') %>
+          </a>
+        </h3>
+        <p>
+          <!-- Removes http links in summaries -->
+          <%= article.summary.gsub(/<https?:\/\/[\S]+/, ' ') %>
+      <%end%>
+      </p>
+    </div>
+  </div>
+</div>
