@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-
+gem 'unirest', '~> 1.1.2'
+gem 'pry', group: :development
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record
