@@ -31,7 +31,7 @@ module SessionsHelper
   end
 
   def redirect_if_signed_in
-    redirect_to(root_path) if signed_in?
+    redirect_to(articles_path) if signed_in?
   end
 
   def redirect_back_or(default)

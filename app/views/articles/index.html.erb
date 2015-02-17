@@ -1,18 +1,17 @@
 <div class="container" id="main">
-  <div class="row">
-    <div class="col-lg-6"> 
-      <% @articles.each do |article| %>
-        <h3> 
-          <a href="<%= article.source %>" target="_blank" >
-            <!-- Extrapolates title from url -->
-            <%= article.source.split('/')[-1].titleize.gsub('-', ' ').gsub('.Html', '') %>
-          </a>
-        </h3>
-        <p>
-          <!-- Removes http links in summaries -->
-          <%= article.summary.gsub(/<https?:\/\/[\S]+/, ' ') %>
-      <%end%>
-      </p>
+  <% @articles.in_groups_of(2).map(&:compact).each do |article_pair| %>
+    <div class="row">
+      <% article_pair.each do |article| %>
+        <div class="col-lg-6 text-left">
+          <h3> 
+            <%= link_to article.source.split('/')[-1].titleize.gsub('-', ' ').gsub('.Html', ''), article.source %>
+          </h3>
+          <p>
+            <!-- Removes http links in summaries -->
+            <%= article.summary.gsub(/<https?:\/\/[\S]+/, ' ') %>
+          </p>
+        </div>
+      <% end %>
     </div>
-  </div>
+  <% end %>
 </div>
