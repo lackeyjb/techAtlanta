@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+
 gem 'will_paginate', '~> 3.0.7'
 gem 'bootstrap-will_paginate', '~> 0.0.10'
 gem 'unirest', '~> 1.1.2'
@@ -45,4 +46,15 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
+end
+
+group :test do
+  gem 'selenium-webdriver', '2.35.1'
+  gem 'capybara', '2.2.0'
+end
+
+gem 'bcrypt-ruby', '~> 3.1.5'
 

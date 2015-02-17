@@ -3,15 +3,14 @@ class Article < ActiveRecord::Base
   def self.get_articles
     get_links.map do |line|
       response     = get_summaries(line)
-      unless response.blank?
-        a          = self.new 
-        a.source   = response['data']['url']
-        a.summary  = response['data']['summary'] 
-        a.keywords = response['data']['keywords'].join(', ') 
-        a.save
-      end
+      create_articles(response) unless response.blank?
     end
-    self.select(&:persisted?)
+  end
+
+  def self.create_articles(response)
+    self.where(:source).first_or_create( source:   response['data']['url'],
+                                         summary:  response['data']['summary'],
+                                         keywords: response['data']['keywords'].join(', ') )
   end
 
   def self.get_links
