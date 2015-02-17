@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'bcrypt-ruby', '~> 3.1.5'
 gem 'will_paginate', '~> 3.0.7'
 gem 'bootstrap-will_paginate', '~> 0.0.10'
 gem 'unirest', '~> 1.1.2'
