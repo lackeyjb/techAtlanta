@@ -4,7 +4,7 @@
       <% article_pair.each do |article| %>
         <div class="col-lg-6 text-left">
           <h3> 
-            <%= link_to article.source.split('/')[-1].titleize.gsub('-', ' ').gsub('.Html', ''), article.source %>
+            <%= link_to article.source.split('/')[-1].titleize.gsub('-', ' ').gsub('.Html', ''), article.source, target: '_blank' %>
           </h3>
           <p>
             <!-- Removes http links in summaries -->
