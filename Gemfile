@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'bcrypt-ruby', '~> 3.1.5'
+
 gem 'will_paginate', '~> 3.0.7'
 gem 'bootstrap-will_paginate', '~> 0.0.10'
 gem 'unirest', '~> 1.1.2'
@@ -55,4 +55,6 @@ group :test do
   gem 'selenium-webdriver', '2.35.1'
   gem 'capybara', '2.2.0'
 end
+
+gem 'bcrypt-ruby', '~> 3.1.5'
 

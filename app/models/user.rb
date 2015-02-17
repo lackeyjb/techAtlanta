@@ -6,4 +6,12 @@ class User < ActiveRecord::Base
             format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
 
   has_secure_password
+
+  def self.new_remember_token
+    SecureRandom.urlsafe_base64
+  end
+
+  def self.digest(token)
+    Digest::SHA1.hexdigest(token.to_s)
+  end
 end
