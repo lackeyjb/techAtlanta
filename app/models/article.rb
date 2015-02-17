@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-
+  belongs_to :user
   def self.get_articles
     get_links.map do |line|
       response     = get_summaries(line)
@@ -8,9 +8,12 @@ class Article < ActiveRecord::Base
   end
 
   def self.create_articles(response)
-    self.where(:source).first_or_create( source:   response['data']['url'],
-                                         summary:  response['data']['summary'],
-                                         keywords: response['data']['keywords'].join(', ') )
+    article = self.find_by(source: response['data']['url'])
+    if article.nil?
+      self.create( source:   response['data']['url'],
+                   summary:  response['data']['summary'],
+                   keywords: response['data']['keywords'].join(', ') )
+    end
   end
 
   def self.get_links
