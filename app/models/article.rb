@@ -1,6 +1,6 @@
 class Article < ActiveRecord::Base
   belongs_to :user
-  def self.get_articles
+  def self.grab_new
     get_links.map do |line|
       response     = get_summaries(line)
       create_articles(response) unless response.blank?
