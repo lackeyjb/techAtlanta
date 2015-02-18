@@ -121,6 +121,17 @@ describe UsersController, type: :controller do
       end
     end
   end
+
+  describe 'DELETE #destroy' do 
+
+    it 'redirects to index' do 
+      user_for_removal = FactoryGirl.create(:user)
+      sign_in user_for_removal, no_capybara: true
+
+      delete :destroy, id: user_for_removal.id
+      expect(response).to redirect_to(user_path)
+    end
+  end
 end
 
 
