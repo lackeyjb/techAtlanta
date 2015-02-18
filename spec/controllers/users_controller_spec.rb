@@ -57,6 +57,21 @@ describe UsersController, type: :controller do
       expect(assigns(:user)).to eq(user)
     end
   end
+
+  describe 'GET #index' do 
+    let(:user1) { FactoryGirl.create(:user) }
+    let(:user2) { FactoryGirl.create(:user) }
+
+    it 'renders index' do 
+      get :index
+      expect(response).to render_template(:index)
+    end
+
+    it 'populates an array of users' do 
+      get :index
+      expect(assigns(:users)).to eq([user1, user2])
+    end
+  end
 end
 
 
