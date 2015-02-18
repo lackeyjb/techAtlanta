@@ -44,5 +44,29 @@ describe UsersController, type: :controller do
     end
   end
 
-  
+  describe 'GET #show' do 
+    let(:user) { FactoryGirl.create(:user) }
+
+    it 'renders show' do 
+      get :show, id: user.id 
+      expect(response).to render_template(:show)
+    end
+
+    it 'assigns correct user' do 
+      get :show, id: user.id
+      expect(assigns(:user)).to eq(user)
+    end
+  end
 end
+
+
+
+
+
+
+
+
+
+
+
+
