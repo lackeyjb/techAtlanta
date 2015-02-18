@@ -72,6 +72,22 @@ describe UsersController, type: :controller do
       expect(assigns(:users)).to eq([user1, user2])
     end
   end
+
+  describe 'GET #edit' do 
+    let(:user_for_edit) { FactoryGirl.create(:user) }
+
+    before { sign_in user_for_edit, no_capybara: true }
+
+    it 'renders edit' do 
+      get :edit, id: user_for_edit.id 
+      expect(response).to render_template(:edit)
+    end
+
+    it 'assigns correct user' do 
+      get :edit, id: user_for_edit.id 
+      expect(assigns(:user)).to eq(user_for_edit)
+    end
+  end
 end
 
 
