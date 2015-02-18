@@ -88,6 +88,39 @@ describe UsersController, type: :controller do
       expect(assigns(:user)).to eq(user_for_edit)
     end
   end
+
+  describe 'PATCH #update' do 
+    let(:user_for_edit) { FactoryGirl.create(:user, email: 'pizza_spaghetti@gorgonzola.org') }
+
+    before{ sign_in user_for_edit, no_capybara: true }
+
+    context 'valid attributes' do 
+      it 'updates user' do 
+        patch :update, id: user_for_edit.id, user: { email: 'taco_nacho@jalapeno.edu' }
+        user_for_edit.reload
+        expect(user_for_edit.email).to eq('taco_nacho@jalapeno.edu')
+      end
+
+      it 'redirects to users#show' do 
+        patch :update, id: user_for_edit.id, user: { email: 'taco_nacho@jalapeno.edu' }
+        user_for_edit.reload
+        expect(response).to redirect_to(user_path(user_for_edit.id))
+      end
+    end
+
+    context 'invalid attributes' do 
+      it 'does not update user' do 
+        patch :update, id: user_for_edit.id, user: { email: '' }
+        user_for_edit.reload
+        expect(user_for_edit.email).to eq('pizza_spaghetti@gorgonzola.org')
+      end
+
+      it 're-renders edit' do 
+        patch :update, id: user_for_edit.id, user: { email: '' }
+        expect(response).to render_template(:edit)
+      end
+    end
+  end
 end
 
 
