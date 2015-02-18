@@ -52,6 +52,8 @@ end
 group :test do
   gem 'selenium-webdriver', '2.35.1'
   gem 'capybara', '2.2.0'
+  gem 'faker'
+  gem 'factory_girl_rails'
 end
 
 gem 'bcrypt-ruby', '~> 3.1.5'

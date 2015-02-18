@@ -7,7 +7,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/articles">techAtlanta</a>
+      <ul class="nav navbar-nav navbar-brand">
+        <% if current_page? root_path %>
+        techAtlanta
+        <% else %>
+        <%= link_to 'techAtlanta', articles_path %>
+        <% end %>
+      </ul>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
