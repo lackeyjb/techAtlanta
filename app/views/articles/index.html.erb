@@ -3,19 +3,24 @@
     <div class="row">
       <% article_pair.each do |article| %>
         <div class="col-lg-6 text-left">
-          <h3> 
-            <!-- Extrapolates title from url -->
-            <%= link_to article.source.split('/')[-1].titleize.gsub('-', ' ').gsub('.Html', ''), article.source, target: '_blank' %>
-          </h3>
-          <p>
-            <!-- Removes http links in summaries -->
-            <%= article.summary.gsub(/<https?:\/\/[\S]+/, ' ') %> 
-            <br>   
-            <br>
-            <% if signed_in? %>  
-              <%= link_to content_tag(:i, nil, class: 'fa fa-heart-o fa-lg pull-right'), favorites_path(favorite: { article_id: article.id }),method: :post %>
-            <% end %>
-          </p>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">
+                <!-- Extrapolates title from url -->
+                <%= link_to article.source.split('/')[-1].titleize.gsub('-', ' ').gsub('.Html', ''), article.source, target: '_blank' %>
+                </h3>
+              </div>
+            </div>
+            <p>
+              <!-- Removes http links in summaries -->
+              <%= article.summary.gsub(/<https?:\/\/[\S]+/, ' ') %> 
+              <br>   
+              <br>
+              <% if signed_in? %>  
+                <%= link_to content_tag(:i, nil, class: 'fa fa-heart-o fa-lg pull-right'), favorites_path(favorite: { article_id: article.id }),method: :post %>
+              <% end %>
+            </p>
+          </div>
         </div>
       <% end %>
     </div>

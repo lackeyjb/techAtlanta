@@ -1,0 +1,26 @@
+body {
+  background: url("/images/atlanta.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.signform {
+  margin-top: 13%;
+  margin-left: 32%;
+}
+
+.navbar {
+  background-color: transparent;
+  border-style: none;
+}
+
+.form-control {
+  border-radius: 0px;
+}
+
+.form-group .btn {
+  border-radius: 0px;
+}
+
