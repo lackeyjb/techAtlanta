@@ -1,5 +1,7 @@
 class Article < ActiveRecord::Base
-  belongs_to :user
+  has_many :favorites
+  has_many :users, through: :favorites
+
   def self.grab_new
     get_links.map do |line|
       response     = get_summaries(line)
@@ -20,7 +22,7 @@ class Article < ActiveRecord::Base
     response = Unirest.get 'https://www.kimonolabs.com/api/e8fno6vo?apikey=n72dwRbZVmajvWGBgV3wWQuIwmDHGK1i'
     links    = response.body['results']['Links'].map { |line| line['link']['href'] }
     # to format link for summarizer api
-    links.map { |link| link.gsub!('/', '%2F').sub!(':', '%3A') }
+    links.map { |link| URI.encode(link, /\W/) }
   end
 
   def self.get_summaries(link)

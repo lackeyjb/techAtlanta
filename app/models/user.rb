@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
-  has_many :articles
+  has_many :favorites
+  has_many :articles, through: :favorites
+
   before_save { email.downcase! }
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(?:\.[a-z\d\-]+)*\.[a-z]+\z/i
