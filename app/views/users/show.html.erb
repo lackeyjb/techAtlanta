@@ -1,1 +1,9 @@
-<h3><%= link_to 'View blogs', articles_path %></h3>
+<% if @user.articles.blank? %>
+  <p>No favorites added yet.</p> 
+<% else %>
+  <% @user.articles.each do |article| %>
+     <h4><%= link_to article.source.split('/')[-1].titleize.gsub('-', ' ').gsub('.Html', ''), article.source, target: '_blank' %></h4>
+    <p><%= article.summary %></p>
+  <% end %>
+</div>
+<% end %>

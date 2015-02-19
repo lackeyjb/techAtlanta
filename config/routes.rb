@@ -3,11 +3,10 @@ Rails.application.routes.draw do
   root 'users#new'
 
   resources :users, except: [:new]
-  resources :sessions, only: [:create]
+  resources :sessions, only: [:create, :destroy]
+  resources :articles
+  resources :favorites, except: [:edit]
 
-  # get '/signup',      to: 'users#new'
-  get '/signin',      to: 'sessions#new'
-  delete '/signout',  to: 'sessions#destroy'
-  get '/articles',    to: 'articles#index'
-
+  get '/signin',        to: 'sessions#new'
+  delete '/signout',    to: 'sessions#destroy'
 end

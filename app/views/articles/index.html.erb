@@ -9,7 +9,12 @@
           </h3>
           <p>
             <!-- Removes http links in summaries -->
-            <%= article.summary.gsub(/<https?:\/\/[\S]+/, ' ') %>
+            <%= article.summary.gsub(/<https?:\/\/[\S]+/, ' ') %> 
+            <br>   
+            <br>
+            <% if signed_in? %>  
+              <%= link_to content_tag(:i, nil, class: 'fa fa-heart-o fa-lg pull-right'), favorites_path(favorite: { article_id: article.id }),method: :post %>
+            <% end %>
           </p>
         </div>
       <% end %>
