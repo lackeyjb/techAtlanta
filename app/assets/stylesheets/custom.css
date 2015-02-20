@@ -1,0 +1,65 @@
+@import url(http://fonts.googleapis.com/css?family=Pacifico);
+
+body {
+  background: url("/images/atlanta.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.navbar {
+  background-color: transparent;
+  border-style: none;
+}
+
+.navbar-brand li {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.5em;
+  color: #D5DEFF;
+  margin-top: -13px;
+  margin-right: 10px;
+}
+
+.navbar-nav a {
+  color: white !important;
+}
+
+.navbar-right a {
+  color: white !important;
+}
+
+.dropdown-menu a {
+  color: black !important;
+}
+
+.form-control {
+  border-radius: 0px;
+}
+
+.form-group {
+  margin-bottom: 8%;
+  margin-left: 30.5%;
+}
+
+.form-group .btn {
+  border-radius: 0px;
+}
+
+.panel {
+  min-height: 280px;
+}
+
+.panel-title {
+  color: #4582ec;
+}
+
+.text-center {
+  margin-top: 1%;
+  color: white;
+}
+
+h3 {
+  color: white;
+}
+
