@@ -1,9 +1,29 @@
 <% if @user.articles.blank? %>
-  <p>No favorites added yet.</p> 
+  <h3>No favorites added yet.</h3> 
 <% else %>
-  <% @user.articles.each do |article| %>
-     <h4><%= link_to article.source.split('/')[-1].titleize.gsub('-', ' ').gsub('.Html', ''), article.source, target: '_blank' %></h4>
-    <p><%= article.summary %></p>
-  <% end %>
-</div>
-<% end %>
+  <div class="container" id="main">
+    <% @user.articles.in_groups_of(2).map(&:compact).each do |article_pair| %>
+    <div class="row">
+      <% article_pair.each do |article| %>
+        <div class="col-lg-6 text-left">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">
+                <!-- Extrapolates title from url -->
+                <%= link_to truncate(article.source.split('/')[-1].titleize.gsub('-', ' ').gsub('.Html', ''), length: 30, separator: ' '), article.source, target: '_blank' %>
+              </h3>
+            </div>
+            <div class="panel-body">
+              <p>
+                <!-- Removes http links in summaries -->
+                <%= article.summary.gsub(/<https?:\/\/[\S]+/, ' ') %> 
+              </p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+ <% end %>
+
