@@ -3,7 +3,7 @@ class FavoritesController < ApplicationController
   def create
     article = Article.find(favorite_params[:article_id])
     current_user.articles << article unless current_user.articles.include?(article)
-    redirect_to articles_path
+    redirect_to :back
   end
 
   private
