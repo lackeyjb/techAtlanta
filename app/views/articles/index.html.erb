@@ -7,16 +7,20 @@
             <div class="panel-heading">
               <h3 class="panel-title">
                 <!-- Extrapolates title from url -->
-                <%= link_to truncate(article.source.split('/')[-1].titleize.gsub('-', ' ').gsub('.Html', ''), length: 30, separator: ' '), article.source, target: '_blank' %>
-                <% if signed_in? %>  
-                  <%= link_to content_tag(:i, nil, class: 'fa fa-heart-o fa-lg pull-right'), favorites_path(favorite: { article_id: article.id }),method: :post %>
+                <%= link_to truncate(get_name(article), length: 30, separator: ' '), article.source, target: '_blank' %>
+                <% if signed_in? %>
+                  <% if @already_saved_articles.include? article.source %>  
+                    <%= link_to content_tag(:i, nil, class: 'fa fa-heart fa-lg pull-right'), favorites_path(favorite: { article_id: article.id }),method: :post %>
+                  <% else %> 
+                    <%= link_to content_tag(:i, nil, class: 'fa fa-heart-o fa-lg pull-right'), favorites_path(favorite: { article_id: article.id }),method: :post %> 
+                  <% end %>
                 <% end %>
               </h3>
             </div>
             <div class="panel-body">
               <p>
                 <!-- Removes http links in summaries -->
-                <%= article.summary.gsub(/<https?:\/\/[\S]+/, ' ') %> 
+                <%= get_summary(article) %> 
               </p>
             </div>
           </div>
