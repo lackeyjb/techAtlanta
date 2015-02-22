@@ -1,5 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe Favorite, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Favorite do 
+  let(:favorite) { Favorite.create(user_id: 1, article_id: 2) }
+
+  it { should respond_to(:user_id) }
+  it { should respond_to(:article_id) }
 end
