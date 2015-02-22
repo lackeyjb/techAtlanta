@@ -1,5 +1,6 @@
+<% provide(:title, 'Favorites') %>
 <% if @user.articles.blank? %>
-  <h3>No favorites added yet.</h3> 
+  <h3 class="text-center">No favorites added yet.</h3> 
 <% else %>
   <div class="container" id="main">
     <% @user.articles.in_groups_of(2).map(&:compact).each do |article_pair| %>
@@ -10,13 +11,13 @@
             <div class="panel-heading">
               <h3 class="panel-title">
                 <!-- Extrapolates title from url -->
-                <%= link_to truncate(article.source.split('/')[-1].titleize.gsub('-', ' ').gsub('.Html', ''), length: 30, separator: ' '), article.source, target: '_blank' %>
+                <%= get_title(article) %>
               </h3>
             </div>
             <div class="panel-body">
               <p>
                 <!-- Removes http links in summaries -->
-                <%= article.summary.gsub(/<https?:\/\/[\S]+/, ' ') %> 
+                <%= get_summary(article) %> 
               </p>
             </div>
           </div>
