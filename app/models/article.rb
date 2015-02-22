@@ -20,8 +20,7 @@ class Article < ActiveRecord::Base
     article = self.find_by(source: response['data']['url'])
     if article.nil?
       self.create( source:   response['data']['url'],
-                   summary:  response['data']['summary'],
-                   keywords: response['data']['keywords'].join(', ') )
+                   summary:  response['data']['summary']                   
     end
   end
 

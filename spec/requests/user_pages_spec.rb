@@ -10,7 +10,7 @@ describe 'user pages' do
 
     before { visit users_path }
 
-    it { should have_title('techAtlanta') }
+    it { should have_title('All Users') }
     it { should have_selector('h1', 'All Users')}
 
     it 'lists each user' do 
@@ -43,24 +43,24 @@ describe 'user pages' do
 
       before { visit user_path(user.id) }
 
-      it { should have_title('techAtlanta') }
-      it { should have_selector('h3', 'View blogs') }
+      it { should have_title('Favorites') }
+      it { should have_selector('h3', 'No favorites added yet.') }
     end
 
     describe 'new user page' do 
       before { visit root_path }
 
-      it { should have_title('techAtlanta') }
-      it { should have_selector('h1', 'Sign Up') }
+      it { should have_title('Welcome') }
+      it { should have_selector('h3', 'Follow') }
     
       describe 'create user' do
-        let(:submit) { 'Create User' }
+        let(:submit) { 'Submit' }
 
         context 'valid information' do
           before do
             fill_in 'Email',            with: 'bryan.lackey@gmail.com'
             fill_in 'Password',         with: 'foobar'
-            fill_in 'Confirm password', with: 'foobar'
+            fill_in 'Confirm Password', with: 'foobar'
           end
 
           it 'creates user' do 
@@ -70,7 +70,7 @@ describe 'user pages' do
           describe 'after saving' do 
             before { click_button submit }
 
-            it { should have_title('techAtlanta') }
+            it { should have_title('Favorites') }
           end
         end
 
@@ -82,7 +82,7 @@ describe 'user pages' do
           describe 'after submission' do 
             before { click_button submit }
 
-            it { should have_title 'techAtlanta' }
+            it { should have_title 'Welcome' }
             it { should have_content('error') }
           end
         end
@@ -97,11 +97,11 @@ describe 'user pages' do
         visit edit_user_path(user_for_edit.id)
       end
 
-      it { should have_title('techAtlanta') }
-      it { should have_selector( 'h1', 'Edit Profile') }
+      it { should have_title('Edit Profile') }
+      it { should have_selector( 'h3', 'Edit Profile') }
 
       describe 'update user' do 
-        let(:submit) { 'Update User' }
+        let(:submit) { 'Submit' }
 
         context 'valid information' do 
           before do 
@@ -110,7 +110,7 @@ describe 'user pages' do
           end
 
           describe 'after saving changes' do 
-            it { should have_title('techAtlanta') }
+            it { should have_title('Favorites') }
 
             specify{ expect(user_for_edit.reload.email).to eq('b.lackey@gmail.com') }
           end
@@ -123,7 +123,7 @@ describe 'user pages' do
           end
 
           describe 'after submission' do 
-            it { should have_title('techAtlanta') }
+            it { should have_title('Edit Profile') }
 
             it { should have_content('error') }
           end

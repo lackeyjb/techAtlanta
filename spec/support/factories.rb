@@ -9,4 +9,9 @@ FactoryGirl.define do
       admin true
     end
   end
+
+  factory :article do 
+    source { Faker::Internet.url }
+    summary { Faker::Lorem.paragraph }
+  end
 end
