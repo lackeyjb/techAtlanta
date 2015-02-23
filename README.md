@@ -24,7 +24,7 @@ techAtlanta is my first Rails project created for the General Assembly Web Devel
 * Gerry Pass
 
 ##Links
-* [site on Heroku](techatlanta.herokuapp.com)
+* [Site on Heroku](https://techatlanta.herokuapp.com)
 * [Trello board](https://trello.com/b/c40ALByH/techatlanta)
 * [Wireframes with Moqups](https://moqups.com/#!/edit/lackeyjb/JiV8e5qo)
 
