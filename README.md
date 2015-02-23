@@ -1,4 +1,4 @@
-#[techAtlanta](techatlanta.herokuapp.com)
+#[techAtlanta](https://techatlanta.herokuapp.com)
 
 ##Overview
 
