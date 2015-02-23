@@ -1,6 +1,6 @@
 <% provide(:title, 'Favorites') %>
 <% if @user.articles.blank? %>
-  <h3 class="text-center">Check out the latest posts to add your favorites.</h3> 
+  <h4 class="text-center">No favorites here! Check out the latest posts to add some.</h4> 
 <% else %>
   <div class="container" id="main">
     <% @user.articles.in_groups_of(2).map(&:compact).each do |article_pair| %>

@@ -29,6 +29,10 @@ body {
   color: white !important;
 }
 
+.footer li {
+  margin-left: 50%;
+}
+
 .dropdown-menu a {
   color: black !important;
 }
@@ -62,5 +66,21 @@ body {
 h3 {
   color: white;
 }
+
+.well {
+  background-color: #4582ec;
+  opacity: 0.9;
+  border-style: none;
+  border-radius: 0px;
+}
+
+.about p, .about li {
+  color: white;
+}
+
+ul {
+  list-style: none;
+}
+
 
 

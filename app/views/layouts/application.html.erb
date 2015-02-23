@@ -16,5 +16,8 @@
   <div class="container-fluid">
     <%= yield %>
   </div>
+  <% if current_page?(root_path) || current_page?(signin_path) %>
+    <%= render 'layouts/footer' %>
+  <% end %>
 </body>
 </html>

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :articles
   resources :favorites, except: [:edit]
 
+  get '/about',         to: 'static_pages#about'
   get '/signin',        to: 'sessions#new'
   delete '/signout',    to: 'sessions#destroy'
 end
