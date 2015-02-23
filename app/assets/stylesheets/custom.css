@@ -52,10 +52,11 @@ body {
 
 .panel {
   min-height: 280px;
+  border-radius: 0px;
 }
 
 .panel-title {
-  color: #4582ec;
+  color: #4582ec !important;
 }
 
 .text-center {
@@ -63,24 +64,21 @@ body {
   color: white;
 }
 
+.list-group {
+  color: black;
+}
+
 h3 {
   color: white;
 }
 
-.well {
-  background-color: #4582ec;
-  opacity: 0.9;
-  border-style: none;
-  border-radius: 0px;
-}
-
-.about p, .about li {
-  color: white;
-}
 
 ul {
   list-style: none;
 }
+
+
+
 
 
 
