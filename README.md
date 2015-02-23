@@ -21,7 +21,6 @@ techAtlanta is my first Rails project created for the General Assembly Web Devel
 * Custom rake task with [Heroku Scheduler](https://addons.heroku.com/scheduler)
 * Testing with RSpec, Capybara, [faker](https://github.com/stympy/faker), and [factory_girl](https://github.com/thoughtbot/factory_girl)
 * Heroku deployment
-* Gerry Pass
 
 ##Links
 * [Site on Heroku](https://techatlanta.herokuapp.com)
