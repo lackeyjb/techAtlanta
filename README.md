@@ -4,7 +4,7 @@
 
 techAtlanta is a web application that aggregates blog articles from the burgeoning Atlanta tech scene, and allows users to save their favorite articles to a profile. 
 
-The app crawls the web to pull the latest blog articles using a custom kimonolabs API, and then summarizes them using Textalytics API. A custom rake task pulls this data daily using Heroku Scheduler.
+The app crawls the web to pull the latest blogs using a custom kimonolabs API, and then summarizes them using Textalytics API. A custom rake task pulls this data daily using Heroku Scheduler, and adds it to the database.
 
 techAtlanta is my first Rails project created for the General Assembly Web Development Immersive program in Atlanta, GA.
 
