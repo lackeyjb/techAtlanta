@@ -21,12 +21,12 @@ techAtlanta is my first Rails project created for the General Assembly Web Devel
 * Custom rake task with [Heroku Scheduler](https://addons.heroku.com/scheduler)
 * Testing with RSpec, Capybara, [faker](https://github.com/stympy/faker), and [factory_girl](https://github.com/thoughtbot/factory_girl)
 * Heroku deployment
-* Gerry Pass
 
 ##Links
 * [Site on Heroku](https://techatlanta.herokuapp.com)
 * [Trello board](https://trello.com/b/c40ALByH/techatlanta)
 * [Wireframes with Moqups](https://moqups.com/#!/edit/lackeyjb/JiV8e5qo)
+* [ERD](https://www.draw.io/#LTechAtlanta)
 
 ##User Stories
 * As a user I want to see all of the Atlanta tech blogs in one place.
@@ -35,5 +35,3 @@ techAtlanta is my first Rails project created for the General Assembly Web Devel
 * As a user I want the summary to be linked to the actual site.
 * As a user I want the site to be visually appealing, and words to be legible.
 
-##ERD
-![ERD diagram](https://raw.githubusercontent.com/lackeyjb/techAtlanta/master/public/images/TechAtlanta.png)
